@@ -34,7 +34,7 @@ int is_palindrome(listint_t **head)
 
 	for (i = 0; i <= (size/2); i++)
 	{
-		if (T[i] != data[size - i - 1])
+		if (data[i] != data[size - i - 1])
 			return (0);
 	}
 	return (1);
