@@ -9,24 +9,24 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *tmp = *head;
 	unsigned int size = 0, i = 0;
-	int data[999];
+	int data[1024];
 
-	if (head == NULL) /* non-existing list is not */
+	if (head == NULL) 
 		return (0);
 
-	if (*head == NULL) /* empty list is palindrome */
+	if (*head == NULL) 
 		return (1);
 
-	while (tmp) /* find size of linked list */
+	while (tmp) 
 	{
 		tmp = tmp->next;
 		size += 1;
 	}
-	if (size == 1) /* single node list is palindrome */
+	if (size == 1) 
 		return (1);
 
 	tmp = *head;
-	while (tmp) /* pull node data into array to compare */
+	while (tmp) 
 	{
 		data[i++] = tmp->n;
 		tmp = tmp->next;
