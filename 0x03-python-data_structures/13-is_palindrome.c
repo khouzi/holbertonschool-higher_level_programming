@@ -9,7 +9,7 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *tmp = *head;
 	unsigned int size = 0, i = 0;
-	int data[99999];
+	int T[99999];
 
 	if (head == NULL) 
 		return (0);
@@ -28,13 +28,13 @@ int is_palindrome(listint_t **head)
 	tmp = *head;
 	while (tmp) 
 	{
-		data[i++] = tmp->n;
+		T[i++] = tmp->n;
 		tmp = tmp->next;
 	}
 
 	for (i = 0; i <= (size/2); i++)
 	{
-		if (data[i] != data[size - i - 1])
+		if (T[i] != T[size - i - 1])
 			return (0);
 	}
 	return (1);
