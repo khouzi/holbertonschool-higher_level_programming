@@ -28,7 +28,7 @@ int is_palindrome(listint_t **head)
 	tmp = *head;
 	while (tmp) 
 	{
-		dT[i++] = tmp->n;
+		T[i++] = tmp->n;
 		tmp = tmp->next;
 	}
 
