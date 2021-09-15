@@ -1,5 +1,5 @@
 def roman_to_int(roman_string):
-    if isinstance(roman_string, str) is False:
+    if roman_string is str:
         return 0
     elif not roman_string:
         return 0
