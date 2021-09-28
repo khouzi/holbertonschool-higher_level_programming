@@ -5,6 +5,7 @@ Defines class Square with private size and public area
 Can access and update size
 """
 
+
 class Square:
     """
     class Square definition
@@ -40,7 +41,7 @@ class Square:
         Args:
             value: sets size to value, if int and >= 0
         """
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
