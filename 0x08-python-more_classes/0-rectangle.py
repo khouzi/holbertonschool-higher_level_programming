@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/usr/bin/python3
 """This is a docstrings.
     for a new class: Rectangle.
