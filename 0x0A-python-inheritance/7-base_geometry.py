@@ -8,7 +8,6 @@ class BaseGeometry:
     """
     class BaseGeometry
     """
-
     def area(self):
         """
         area geometry function
@@ -19,13 +18,13 @@ class BaseGeometry:
         """
         integer validator value
         Args:
-                name(string): name
-                value(int): given value
+            name(string): name
+            value(int): given value
         Raises:
-                TypeError: when value is not integer
-                ValueError: when value is less or equal to 0
+            TypeError: when value is not integer
+            ValueError: when value is less or equal to 0
         """
-        if not isinstance(value, int):
-            raise TypeError("{} must be an integer".format(name))
+        if type(value) is not int:
+            raise TypeError("{:s} must be an integer".format(name))
         if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+            raise ValueError("{:s} must be greater than 0".format(name))
