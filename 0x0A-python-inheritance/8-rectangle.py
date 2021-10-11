@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-"""
-BaseGeometry class
-"""
+""" BaseGeometry class """
 
 
 class BaseGeometry:
     """
     class BaseGeometry
     """
-
     def area(self):
         """
         area geometry function
@@ -19,20 +16,19 @@ class BaseGeometry:
         """
         integer validator value
         Args:
-                name(string): name
-                value(int): given value
+            name(string): name
+            value(int): given value
         Raises:
-                TypeError: when value is not integer
-                ValueError: when value is less or equal to 0
+            TypeError: when value is not integer
+            ValueError: when value is less or equal to 0
         """
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
 
-
 """
-Rectangle class
+Rectangle Module
 """
 
 
@@ -40,15 +36,14 @@ class Rectangle(BaseGeometry):
     """
     Rectangle class
     """
-
     def __init__(self, width, height):
         """
         Init function
         Args:
-                width(int): the width of rectangle
-                height(int): the height of the rectangle
+            width(int): the width of rectangle
+            height(int): the height of the rectangle
         """
-        self.__widht = width
-        self.__height = height
         self.integer_validator("width", width)
         self.integer_validator("height", height)
+        self.__width = width
+        self.__height = 
