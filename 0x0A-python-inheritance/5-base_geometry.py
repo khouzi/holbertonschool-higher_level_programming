@@ -5,7 +5,7 @@ BaseGeometry class
 
 
 class BaseGeometry:
-	"""
-	empty class BaseGeometry
-	"""
-	pass
+    """
+    empty class BaseGeometry
+    """
+    pass

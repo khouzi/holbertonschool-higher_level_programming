@@ -5,6 +5,7 @@ Rectangle = __import__('9-rectangle').Rectangle
 
 class Square(Rectangle):
     """ Square Module """
+
     def __init__(self, size):
         """
         Init function
@@ -15,4 +16,3 @@ class Square(Rectangle):
 
     def area(self):
         return self.__size * self.__size
-        
