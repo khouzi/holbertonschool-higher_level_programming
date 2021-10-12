@@ -27,6 +27,7 @@ class Student():
             if att in self.__dict__.keys():
                 dic[att] = self.__dict__[att]
         return dic
+
     def reload_from_json(self, json):
         """
         Return:
@@ -34,4 +35,3 @@ class Student():
         """
         for k, v in json.items():
             setattr(self, k, v)
-            
