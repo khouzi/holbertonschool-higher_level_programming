@@ -10,5 +10,5 @@ Read file function
 Args:
     filename(string): the given file name
 """
-    with open(filename, encoding="utf-8") as myfile:
-        print(myfile.read())
+    with open(filename, mode="r", encoding="utf-8") as myfile:
+        print(myfile.read(), end="")
