@@ -68,17 +68,24 @@ class Base:
         return dummy
 
     @classmethod
-    def load_from_file(cls):
-        filename = cls.__name__ + '.json'
+        def load_from_file_csv(cls):
+            """ Deserializes CSV and load """
+            filename = cls.__name__ + ".csv"
 
-        if path.exists(filename) is False:
-            return []
-
-        with open(filename, mode='r', encoding='utf-8') as f:
-            objs = cls.from_json_string(f.read())
-            instances = []
-
-            for elem in objs:
-                instances.append(cls.create(**elem))
-
-            return instances
+            try:
+                with open(filename, encoding="utf-8") as myfile:
+                    r = csv.reader(myfile)
+                    if cls.__name__ == "Rectangle":
+                        attr = ["id", "width", "height", "x", "y"]
+                    elif cls.__name__ == "Square":
+                        attr = ["id", "size", "x", "y"]
+                    inslist = []
+                    for row in r:
+                        ct, dic = 0, {}
+                        for i in row:
+                            dic[attr[ct]] = int(i)
+                            ct += 1
+                        inslist.append(cls.create(**dic))
+                    return inslist
+            except IOError:
+                return []
