@@ -39,7 +39,7 @@ class Base:
         """
         L = []
         if list_objs is None:
-            return L
+            return L = []
         else:
             for i in list_objs:
                 L.append(cls.to_dictionary(i))
