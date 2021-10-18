@@ -67,25 +67,17 @@ class Base:
         dummy.update(**dictionary)
         return dummy
 
-    @classmethod
-        def load_from_file_csv(cls):
-            """ Deserializes CSV and load """
-            filename = cls.__name__ + ".csv"
+    def load_from_file(cls):
+            """ load file """
+            filename = cls.__name__ + ".json"
 
             try:
                 with open(filename, encoding="utf-8") as myfile:
-                    r = csv.reader(myfile)
-                    if cls.__name__ == "Rectangle":
-                        attr = ["id", "width", "height", "x", "y"]
-                    elif cls.__name__ == "Square":
-                        attr = ["id", "size", "x", "y"]
+                    rd = myfile.read()
+                    dicst = cls.from_json_string(rd)
                     inslist = []
-                    for row in r:
-                        ct, dic = 0, {}
-                        for i in row:
-                            dic[attr[ct]] = int(i)
-                            ct += 1
-                        inslist.append(cls.create(**dic))
+                    for i in dicst:
+                        inslist.append(cls.create(**i))
                     return inslist
             except IOError:
                 return []
