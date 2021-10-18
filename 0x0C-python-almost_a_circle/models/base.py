@@ -69,17 +69,16 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """
-        return a list of instances from a file
-        """
-        filename = cls.__name__ + ".jason"
-        L = []
-        if os.path.isfile(filename) is False:
-            return L
-        else:
-            with open(filename, encoding="UTF8") as Myfile:
-                rd = Myfile.read()
-                t = cls.from_json_string(rd)
-                for i in t:
-                    L.append(cls.create(**i))
-                return L
+        filename = cls.__name__ + '.json'
+
+        if path.exists(filename) is False:
+            return []
+
+        with open(filename, mode='r', encoding='utf-8') as f:
+            objs = cls.from_json_string(f.read())
+            instances = []
+
+            for elem in objs:
+                instances.append(cls.create(**elem))
+
+            return instances
