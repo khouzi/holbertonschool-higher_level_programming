@@ -42,7 +42,8 @@ class Base:
             return L
         else:
             for i in list_objs:
-                L.append(cls.to_dictionary(i))
+                    L.append(cls.to_dictionary(i))
+            return L  
         with open("{}.jason".format(cls.__name__), "w",
                   encoding="UTF8") as Myfile:
             Myfile.write(cls.to_json_string(L))
