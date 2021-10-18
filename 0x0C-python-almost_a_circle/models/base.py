@@ -67,4 +67,18 @@ class Base:
         dummy.update(**dictionary)
         return dummy
 
-    
+    @classmethod
+    def load_from_file(cls):
+        """ load file """
+        filename = cls.__name__ + ".json"
+
+        try:
+            with open(filename, encoding="utf-8") as myfile:
+                rd = myfile.read()
+                dicst = cls.from_json_string(rd)
+                inslist = []
+                for i in dicst:
+                    inslist.append(cls.create(**i))
+                return inslist
+        except IOError:
+            return []
