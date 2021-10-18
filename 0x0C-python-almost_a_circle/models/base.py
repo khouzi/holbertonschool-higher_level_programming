@@ -7,9 +7,15 @@ import os.path
 
 
 class Base:
+    """A class named Base
+    Attributes:
+    attr1(__nb_objects): number of objects
+    attr2(id): object id
+    """
     __nb_object = 0
 
     def __init__(self, id=None):
+        """Initiliazes"""
         if id is not None:
             self.id = id
         else:
