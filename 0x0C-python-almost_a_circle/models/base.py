@@ -77,7 +77,7 @@ class Base:
         """
         filename = cls.__name__ + ".jason"
         L = []
-        if os.path.isfile(filename) == False:
+        if os.path.isfile(filename) is False:
             return L
         else:
             with open(filename, encoding="UTF8") as Myfile:
