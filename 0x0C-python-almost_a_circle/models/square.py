@@ -6,6 +6,8 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """ Square class """
+
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
 
@@ -32,6 +34,9 @@ class Square(Rectangle):
             self.width = s
 
     def update(self, *args, **kwargs):
+        """
+        assigns a key/value argument to attributes
+        """
         if len(args) > 0:
             for i in range(len(args)):
                 if i == 0:
@@ -56,4 +61,7 @@ class Square(Rectangle):
                         self.y = kwargs['y']
 
     def to_dictionary(self):
+        """
+        returns the dictionary representation of a square
+        """
         return {"id": self.id, "size": self.width, "x": self.x, "y": self.y}
