@@ -33,4 +33,3 @@ def filter_states():
 
 if __name__ == "__main__":
     filter_states()
-    
