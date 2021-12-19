@@ -5,6 +5,7 @@ Script that lists all State objects from the database
 
 from sys import argv
 from model_state import Base, State
+from model_city import City
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 
@@ -19,9 +20,9 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     session = Session(engine)
-    deletes = session.query(State).order_by(State.id).all()
-    for row in deletes:
-        if 'a' in row.name:
-            session.delete(row)
-    session.commit()
+    new_table = session.query(City, State)\
+        .filter(City.state_id == State.id)\
+        .order_by(City.id.asc()).all()
+    for cities, states in new_table:
+        print("{}: ({}) {}".format(states.name, cities.id, cities.name))
     session.close()
