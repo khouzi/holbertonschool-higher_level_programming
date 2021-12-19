@@ -1,37 +1,24 @@
 #!/usr/bin/python3
 """
-states module
+Write a script that lists all states from the database hbtn_0e_0_usa:
 """
-
-
 import MySQLdb
-import sys
-
-
-def myfilter_states():
-    """"
-    lists all states with a name starting with N (upper N)
-    from the database hbtn_0e_0_usa
-    """
-    user = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    searchstate = sys.argv[4]
-    cities = []
-
-    db = MySQLdb.connect(host="localhost", port=3306, user=user,
-                         passwd=password, db=database)
-
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states\
-                WHERE name='{}'\
-                ORDER BY id ASC".format(searchstate))
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
-    cur.close()
-    db.close()
-
-
+from sys import argv
 if __name__ == "__main__":
-    myfilter_states()
+
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=argv[1],
+        password=argv[2],
+        database=argv[3],
+    )
+    cursor = db.cursor()
+    cursor.execute(
+        "SELECT * FROM states WHERE Name LIKE BINARY '{}' ORDER BY id ASC"
+        .format(argv[4]))
+    results = cursor.fetchall()
+    for row in results:
+        print(row)
+    cursor.close()
+    db.close()
