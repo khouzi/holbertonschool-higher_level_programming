@@ -9,7 +9,7 @@ if __name__ == "__main__":
         host="localhost",
         user=argv[1],
         password=argv[2],
-        database=argv[3]
+        database=argv[3],
     )
     cursor = db.cursor()
     sql = "SELECT * FROM states ORDER BY id"
@@ -19,3 +19,4 @@ if __name__ == "__main__":
         print(row)
     cursor.close()
     db.close()
+    
