@@ -16,4 +16,3 @@ if __name__ == "__main__":
             print("No result")
     except BaseException:
         print("Not a valid JSON")
-
